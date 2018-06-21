@@ -1,0 +1,13 @@
+---
+- name: Install Apache 
+  hosts: Centos7
+  become: True
+  tasks: 
+    - name: Install packages necessaray for apache web server
+      yum:
+        name:
+        - httpd
+    - name: Restart the httpd service
+      systemd:
+        name: httpd
+        state: restarted
